@@ -1,0 +1,104 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font: normal 16px/1.5 Helvetica, sans-serif, bold;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+
+button {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+button:active {
+  color: black;
+}
+/* .fixed menu
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+
+.fixed-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 14px;
+  padding-bottom: 13px;
+  background: rgb(1, 66, 163);
+}
+
+.fixed-menu .menu-open {
+  font-size: 1.8rem;
+  text-align: left;
+  width: 17px;
+  color: white;
+}
+
+/* .top-banner
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.top-nav li + li {
+  margin-top: 7px;
+}
+
+/* .menu-wrapper
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+.menu-wrapper {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  bottom: 0;
+  width: 220px;
+  padding: 20px;
+  transform: translateY(-100%);
+  transition: transform 0.7s;
+  background: linear-gradient(to bottom, rgba(1, 52, 129, 0.836), transparent);
+  background-color: #549aeb;
+  color: #ffffff;
+  font-size: 21px;
+  border-bottom-right-radius: 100%;
+  border-top-right-radius: 3%;
+}
+
+.menu-wrapper.is-opened {
+  transform: translateY(0px);
+  transition: transform 0.7s;
+}
+
+.menu-wrapper .menu {
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.menu-wrapper.is-opened .menu {
+  opacity: 1;
+  transition-delay: 0.6s;
+}
+
+.menu-wrapper .menu a {
+  font-size: 1.2rem;
+}
+
+.menu-wrapper .sub-menu {
+  padding: 10px 0 0 7px;
+}
+
+.menu-wrapper .menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 1.6rem;
+}

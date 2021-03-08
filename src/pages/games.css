@@ -1,0 +1,13 @@
+.games-contents {
+  width: 100%;
+  margin: 20px;
+  position: absolute;
+}
+
+.btn-list {
+  margin-left: 20px;
+  margin-top: 20px;
+  text-align: left;
+  border-bottom: #282c34 dotted 2px;
+  padding-bottom: 20px;
+}
