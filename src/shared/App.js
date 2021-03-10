@@ -1,10 +1,10 @@
 /* eslint-disable */
 import React, {useState, memo, useRef} from 'react';
-import 'Main.css';
+import 'shared/App.css';
 
-import TopMenu from 'frame/topMenu';
-import LeftMenu from 'frame/leftMenu';
-import MainContents from 'frame/mainContents';
+import TopMenu from 'components/topMenu';
+import LeftMenu from 'components/leftMenu';
+import MainContents from 'components/mainContents';
 
 
 const App = memo(() => {

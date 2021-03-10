@@ -1,7 +1,7 @@
 import React, {memo, useState, useRef} from 'react';
 import './leftMenu.css';
 
-import Games from 'pages/games';
+import Games from '../pages/games';
 
 const LeftMenu = memo(({menuList, callPage, expended}) => {
     const [bMove, setBmove] = useState(false);
@@ -22,7 +22,6 @@ const LeftMenu = memo(({menuList, callPage, expended}) => {
 
     const onOpenBtnClick = () => {
         if(!bMove){
-            
             menuWrapper.current.classList.add("is-opened");
 
             expended(!bMove);
@@ -46,11 +45,11 @@ const LeftMenu = memo(({menuList, callPage, expended}) => {
                     {
                     menuList.map((v, i) => {
                         return (
-                            <li eventKey={v.code} onClick={()=>fn_callMain(v.code)}>
+                            <li eventKey={v.code} onClick={()=>fn_callMain(v.code, `menu-li-${i}`)} className={`menu-li-${i}`}>
                                 <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
                                 {v.name}
                             </li>
-                        );
+                        )
                     })
                     }
                 </ul>

@@ -1,14 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import 'bootstrap/dist/css/bootstrap.min.css'
-import './index.css';
-import Main from 'Main';
+import Root from 'client/Root';
 
 ReactDOM.render(
-  <>
-    <Main />
-  </>,
+  <Root />,
   document.getElementById('root')
 );
 
