@@ -17,7 +17,6 @@ const Games = memo(() => {
                                                 { code: 'E4' , name : '기타4'},
                                                 ]);
 
-
                                                 
     const [getPage,setPage] = useState();
 

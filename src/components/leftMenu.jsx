@@ -2,29 +2,38 @@ import React, {memo, useState, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import './leftMenu.css';
 
-import Games from '../pages/games';
-
 const LeftMenu = memo(({menuList, expended}) => {
     const [bMove, setBmove] = useState(false);
+    const [arrow, setArrow] = useState('<');
     const menuOpen = useRef(null);
-    const menuClose = useRef(null);
+    const menuResize = useRef(null);
     const menuWrapper = useRef(null);
     
     const onOpenBtnClick = () => {
         if(!bMove){
             menuWrapper.current.classList.add("is-opened");
+            menuResize.current.classList.add("is-opened");
 
             expended(!bMove);
             setBmove(true);
-        }
-    }
-
-    const onCloseBtnClick = () => {
-        if(bMove){
+        }else{
             menuWrapper.current.classList.remove("is-opened");
+            menuResize.current.classList.remove("is-opened");
             
             expended(!bMove);
             setBmove(false);
+        }
+    }
+
+    const onResizeBtnClick = () => {
+        if(arrow === '<'){
+            menuWrapper.current.classList.add("is-resized");
+            menuResize.current.classList.add("is-resized");
+            setArrow('>');
+        }else{
+            menuWrapper.current.classList.remove("is-resized");
+            menuResize.current.classList.remove("is-resized");
+            setArrow('<');
         }
     }
 
@@ -35,18 +44,20 @@ const LeftMenu = memo(({menuList, expended}) => {
                     {
                     menuList.map((v, i) => {
                         return (
-                            <li eventKey={v.code}>
-                                <Link to={v.path} className="linkText">
-                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />{v.name}
-                                </Link>
-                            </li>
+                            <Link to={v.path} className="linkText" key={i}>
+                                <li eventKey={v.code}>
+                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.35em' }} >🦌 </i>{v.name}
+                                </li>
+                            </Link>
                         )
                     })
                     }
                 </ul>
-                <button className="menu-close" ref={menuClose} aria-label="close menu"
-                    onClick={onCloseBtnClick}
-                >✕</button>
+            </div>
+            <div className="menu-resize" ref={menuResize} >
+                <button className="btn-resize" aria-label="resize menu" 
+                    onClick={onResizeBtnClick}>{arrow}</button>
+                
             </div>
             <div className="fixed-menu">
                 <button className="menu-open" ref={menuOpen} aria-label="open menu" 
