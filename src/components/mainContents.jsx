@@ -8,13 +8,13 @@ const MainContent = memo(({exped, menuInfo}) => {
         <>
             <main className="menu-contents" style={{
                     transform: exped ? `translateX(220px)` : `translateX(10px)`,
-                    transition: 'transform 0.7s'
+                    transition: 'transform 0.2s'
             }}> 
                 <Route exact path="/" component={Home} />
                 {
                     menuInfo.map((v,i) => {
                         return(
-                            <Route path={v.path} component={v.compo} />
+                            <Route path={v.path} component={v.compo} key={i}/>
                         )
                     })
                 }

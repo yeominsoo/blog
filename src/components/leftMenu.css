@@ -74,22 +74,21 @@ button:active {
   position: fixed;
   top: 70px;
   left: 0;
-  bottom: 0;
+  bottom: 50px;
   width: 220px;
   padding: 20px;
-  transform: translateY(-100%);
-  transition: transform 0.3s;
+  transform: translateX(-100%);
+  transition: transform 0.3s, width 0.3s;
   background: linear-gradient(to bottom, rgba(1, 52, 129, 0.836), transparent);
-  background-color: #549aeb;
+  background-color: #81b8f7;
   color: #ffffff;
   font-size: 21px;
-  border-bottom-right-radius: 100%;
-  border-top-right-radius: 3%;
+  border-top-right-radius: 5%;
 }
 
 .menu-wrapper.is-opened {
-  transform: translateY(0px);
-  transition: transform 0.3s;
+  transform: translateX(0px);
+  transition: transform 0.3s, width 0.3s;
 }
 
 .menu-wrapper .menu {
@@ -110,9 +109,34 @@ button:active {
   padding: 10px 0 0 7px;
 }
 
-.menu-wrapper .menu-close {
+/* 버튼 리사이즈 */
+.menu-resize {
+  display: flex;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 1.6rem;
+  width: 220px;
+  transform: translateX(-100%);
+  transition: transform 0.3s, width 0.3s;
+  background: linear-gradient(to bottom, #81b8f7, transparent);
+  background-color: rgba(1, 52, 129, 0.836);
+  height: 50px;
+  bottom: 0px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.menu-resize.is-opened {
+  transform: translateX(0px);
+  transition: transform 0.3s, width 0.3s;
+}
+.btn-resize {
+  width: 100%;
+  font-size: 1.8rem;
+  text-align: right;
+  color: white;
+  padding-right: 20px;
+}
+
+.is-resized {
+  transition: transform 0.3s, width 0.3s;
+  width: 65px;
 }
