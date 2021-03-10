@@ -1,6 +1,6 @@
 import React, {Component,createRef} from 'react';
 import { render } from 'react-dom';
-import Try from './try';
+import Try from './Try';
 
 function getNumbers(){ //숫자 네개를 겹치지 않고 랜덤하게 뽑는 함수
     const candidate = [1,2,3,4,5,6,7,8,9];

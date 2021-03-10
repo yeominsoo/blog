@@ -1,0 +1,22 @@
+.title-frame {
+  position: absolute;
+  left: 65px;
+  right: 0;
+  background: linear-gradient(to right, rgb(1, 66, 163), transparent);
+  background-color: #ffffff;
+  display: flex;
+  color: #ffffff;
+  padding: 20px;
+  font-weight: 600;
+  font-size: 20px;
+  z-index: 9999;
+}
+
+.TopTitleText {
+  color: white;
+  text-decoration: none;
+}
+.TopTitleText:hover {
+  color: white;
+  text-decoration: none;
+}
