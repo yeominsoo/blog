@@ -24,6 +24,16 @@ button {
 button:active {
   color: black;
 }
+
+.linkText {
+  color: white;
+  text-decoration: none;
+}
+.linkText:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* .fixed menu
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 

@@ -1,25 +1,15 @@
 import React, {memo, useState, useRef} from 'react';
+import {Link} from 'react-router-dom';
 import './leftMenu.css';
 
 import Games from '../pages/games';
 
-const LeftMenu = memo(({menuList, callPage, expended}) => {
+const LeftMenu = memo(({menuList, expended}) => {
     const [bMove, setBmove] = useState(false);
     const menuOpen = useRef(null);
     const menuClose = useRef(null);
     const menuWrapper = useRef(null);
     
-    const fn_callMain = (menuCode) => {
-        switch(menuCode){
-        case "WG":
-                callPage(<Games />);
-            break;
-        default :
-                callPage();
-            break;
-        }
-    };
-
     const onOpenBtnClick = () => {
         if(!bMove){
             menuWrapper.current.classList.add("is-opened");
@@ -45,9 +35,10 @@ const LeftMenu = memo(({menuList, callPage, expended}) => {
                     {
                     menuList.map((v, i) => {
                         return (
-                            <li eventKey={v.code} onClick={()=>fn_callMain(v.code, `menu-li-${i}`)} className={`menu-li-${i}`}>
-                                <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />
-                                {v.name}
+                            <li eventKey={v.code}>
+                                <Link to={v.path} className="linkText">
+                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.75em' }} />{v.name}
+                                </Link>
                             </li>
                         )
                     })

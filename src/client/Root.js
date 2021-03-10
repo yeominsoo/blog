@@ -1,11 +1,13 @@
-import React from 'react';
-import { Link, Route, BrowserRouter as Router } from "react-router-dom"
-import App from 'shared/App';
+import React, {memo} from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
+import App from '../shared/App';
 
-const Root = () => {
-    <Router>
-        <App />
-    </Router>
-};
+const Root = memo(() => {
+    return (
+        <Router>
+            <App/>
+        </Router>
+    )
+});
 
 export default Root;

@@ -1,14 +1,14 @@
 import React from 'react';
 
-const About = () => {
+const NotFound = () => {
     return (
         <>
             <h2>
-                About
+                NotFound
             </h2>
         </>
     )
 };
 
 
-export default About;
+export default NotFound;
