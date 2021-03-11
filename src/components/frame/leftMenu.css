@@ -14,19 +14,8 @@ ul {
   list-style: none;
 }
 
-button {
-  border: none;
-  background: transparent;
-  outline: none;
-  cursor: pointer;
-}
-
-button:active {
-  color: black;
-}
-
 .link-text {
-  color: white;
+  color: #37545f;
   text-decoration: none;
   height: 50px;
   font-size: 1.2rem;
@@ -34,7 +23,7 @@ button:active {
   overflow: hidden;
 }
 .link-text:hover {
-  color: white;
+  color: #80878a;
   text-decoration: none;
 }
 
@@ -52,16 +41,27 @@ button:active {
   padding-right: 20px;
   padding-top: 14px;
   padding-bottom: 13px;
-  background: rgb(1, 66, 163);
+  background: #d5dadb;
 }
 
 .fixed-menu .menu-open {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
   font-size: 1.8rem;
   text-align: left;
   width: 17px;
-  color: white;
+  color: #37545f;
 }
 
+.fixed-menu .menu-open:active {
+  color: rgb(235, 241, 243);
+}
+
+.fixed-menu .menu-open:hover {
+  color: #80878a;
+}
 /* .top-banner
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .top-nav li + li {
@@ -88,9 +88,8 @@ button:active {
   padding: 20px;
   transform: translateX(-100%);
   transition: transform 0.3s, width 0.3s;
-  background: linear-gradient(to bottom, rgba(1, 52, 129, 0.836), transparent);
-  background-color: #81b8f7;
-  color: #ffffff;
+  /* background: linear-gradient(to bottom, rgba(1, 52, 129, 0.836), transparent); */
+  background-color: #eaf0f1;
   font-size: 21px;
   border-top-right-radius: 5%;
 }
@@ -121,8 +120,7 @@ button:active {
   width: 220px;
   transform: translateX(-100%);
   transition: transform 0.3s, width 0.3s;
-  /* background: linear-gradient(to bottom, #81b8f7, transparent); */
-  background-color: rgba(1, 52, 129, 0.836);
+  background-color: #d5dadb;
   height: 50px;
   bottom: 0px;
   padding-left: 20px;
@@ -133,11 +131,19 @@ button:active {
   transform: translateX(0px);
 }
 .btn-resize {
+  border: none;
+  background: transparent;
+  outline: none;
+  cursor: pointer;
   width: 100%;
   font-size: 1.8rem;
   text-align: right;
-  color: white;
+  color: #37545f;
   padding-right: 20px;
+}
+.btn-resize:hover {
+  font-size: 1.9rem;
+  color: #80878a;
 }
 
 .is-resized {

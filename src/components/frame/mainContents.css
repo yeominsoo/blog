@@ -1,7 +1,6 @@
 .menu-contents {
   overflow-y: scroll;
   overflow-x: hidden;
-  transition: transform 0.3s;
   margin-top: 80px;
   position: absolute;
   text-align: left;
@@ -9,5 +8,19 @@
   padding-right: 0;
   left: 0;
   right: 0;
-  height: 90%;
+}
+
+.menu-contents::-webkit-scrollbar {
+  width: 10px;
+}
+.menu-contents::-webkit-scrollbar-button {
+  background-color: #80878a;
+}
+
+.menu-contents::-webkit-scrollbar-track {
+  background-color: #ffffff;
+}
+
+.menu-contents::-webkit-scrollbar-thumb {
+  background-color: #80878a;
 }

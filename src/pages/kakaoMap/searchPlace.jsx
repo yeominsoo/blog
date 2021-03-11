@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import MapContainer from "./kakaoMap";
 import Button from 'react-bootstrap/Button';
 
+import './searchPlace.css';
+
 const SearchPlace = () => {
   const [inputText, setInputText] = useState("");
   const [place, setPlace] = useState("");
@@ -18,15 +20,19 @@ const SearchPlace = () => {
 
   return (
     <>
-      <form className="inputForm" onSubmit={handleSubmit}>
-        <input
-          placeholder="장소 찾기"
-          onChange={onChange}
-          value={inputText}
-        />
-        <Button type="submit" variant="info">검색</Button>
-      </form>
-      <MapContainer searchPlace={place} />
+      <div className="map-wrap">
+        <MapContainer searchPlace={place} className="container-map"/>
+        <form className="inputForm" onSubmit={handleSubmit}>
+          <input
+            placeholder="장소 찾기"
+            onChange={onChange}
+            value={inputText}
+          />
+          <Button type="submit" style={{
+            
+          }}>검색</Button>
+        </form>
+      </div>
     </>
   );
 };

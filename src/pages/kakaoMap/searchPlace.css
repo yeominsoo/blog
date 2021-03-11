@@ -1,0 +1,15 @@
+.map-wrap {
+  display: flex;
+  position: relative;
+  left: 0px;
+  right: 10px;
+}
+
+.inputForm {
+  padding-left: 20px;
+}
+
+.inputForm > input {
+  padding: 5px;
+  margin-right: 5px;
+}

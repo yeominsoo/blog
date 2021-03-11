@@ -11,7 +11,7 @@ const KakaoMap = memo(({searchPlace}) => {
   const mapScript = () =>{
     const container = document.getElementById('kakaoMap');
     const options = {
-      center: new kakao.maps.LatLng(33.450701, 126.570667),
+      center: new kakao.maps.LatLng(37.530336146543085, 126.89737488656276),
       level: 3
     };
     const map = new kakao.maps.Map(container, options);
@@ -29,7 +29,7 @@ const KakaoMap = memo(({searchPlace}) => {
             }       
 
             map.setBounds(bounds);
-        } 
+        }
     }
 
     const displayMarker = (place) => {
@@ -40,7 +40,7 @@ const KakaoMap = memo(({searchPlace}) => {
         // 마커에 클릭이벤트를 등록
         kakao.maps.event.addListener(marker, 'click', function() {
             // 마커를 클릭하면 장소명이 인포윈도우에 표출
-            infowindow.setContent('<div style="padding:5px;font-size:12px;">' + place.place_name + '</div>');
+            infowindow.setContent(`<div style="padding:5px;font-size:12px;">${place.place_name} ${place.y},${place.x}</div>`);
             infowindow.open(map, marker);
         });
     }
@@ -50,8 +50,8 @@ const KakaoMap = memo(({searchPlace}) => {
   return (
     <>
         <div id="kakaoMap" style={{
-            width:'800px',
-            height:'600px'
+            width:'600px',
+            height:'400px'
         }}>
         </div>
     </>
