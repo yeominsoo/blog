@@ -8,7 +8,8 @@ const Home = () => {
             <div className="home-banner">
             
             </div>
-            <div >
+            <div style={{
+            }} >
                 <SearchPlace />
             </div>
             
