@@ -3,11 +3,11 @@ import {Route} from 'react-router-dom';
 import './mainContents.css';
 import Home from '../pages/Home';
 
-const MainContent = memo(({exped, menuInfo}) => {
+const MainContent = memo(({exped, menuInfo, resized}) => {
     return (
         <>
             <main className="menu-contents" style={{
-                    transform: exped ? `translateX(220px)` : `translateX(10px)`,
+                    transform: `translateX(${exped ? resized ? 220 : 65 : 10}px)`,
                     transition: 'transform 0.2s'
             }}> 
                 <Route exact path="/" component={Home} />

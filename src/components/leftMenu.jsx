@@ -1,11 +1,12 @@
 import React, {memo, useState, useRef} from 'react';
 import {Link} from 'react-router-dom';
 import './leftMenu.css';
+import 'font-awesome/css/font-awesome.min.css';
 
-const LeftMenu = memo(({menuList, expended}) => {
-    const [bMove, setBmove] = useState(false);
-    const [arrow, setArrow] = useState('<');
-    const menuOpen = useRef(null);
+const LeftMenu = memo(({menuList, expended, resized}) => {
+    const [bMove, setMove] = useState(false);
+    const [bResize, setResize] = useState(true);
+    const [eIcon, setIcon] = useState(<i class="fa fa-angle-left" aria-hidden="true"></i>);
     const menuResize = useRef(null);
     const menuWrapper = useRef(null);
     
@@ -15,25 +16,29 @@ const LeftMenu = memo(({menuList, expended}) => {
             menuResize.current.classList.add("is-opened");
 
             expended(!bMove);
-            setBmove(true);
+            setMove(true);
         }else{
             menuWrapper.current.classList.remove("is-opened");
             menuResize.current.classList.remove("is-opened");
             
             expended(!bMove);
-            setBmove(false);
+            setMove(false);
         }
     }
 
     const onResizeBtnClick = () => {
-        if(arrow === '<'){
+        if(bResize){
             menuWrapper.current.classList.add("is-resized");
             menuResize.current.classList.add("is-resized");
-            setArrow('>');
+            resized(!bResize);
+            setResize(!bResize);
+            setIcon(<i class="fa fa-angle-right" aria-hidden="true"></i>);
         }else{
             menuWrapper.current.classList.remove("is-resized");
             menuResize.current.classList.remove("is-resized");
-            setArrow('<');
+            resized(!bResize);
+            setResize(!bResize);
+            setIcon(<i class="fa fa-angle-left" aria-hidden="true"></i>);
         }
     }
 
@@ -46,7 +51,7 @@ const LeftMenu = memo(({menuList, expended}) => {
                         return (
                             <Link to={v.path} className="linkText" key={i}>
                                 <li eventKey={v.code}>
-                                    <i className="fa fa-fw fa-home" style={{ fontSize: '1.35em' }} >🦌 </i>{v.name}
+                                    <i className={v.icon} style={{ fontSize: '1.55em' }} />{v.name}
                                 </li>
                             </Link>
                         )
@@ -56,12 +61,12 @@ const LeftMenu = memo(({menuList, expended}) => {
             </div>
             <div className="menu-resize" ref={menuResize} >
                 <button className="btn-resize" aria-label="resize menu" 
-                    onClick={onResizeBtnClick}>{arrow}</button>
+                    onClick={onResizeBtnClick}>{eIcon}</button>
                 
             </div>
             <div className="fixed-menu">
-                <button className="menu-open" ref={menuOpen} aria-label="open menu" 
-                    onClick={onOpenBtnClick}>☰</button>
+                <button className="menu-open" aria-label="open menu" 
+                    onClick={onOpenBtnClick}><i className="fa fa-bars" aria-hidden="true"></i></button>
             </div>
         </nav>
     )
