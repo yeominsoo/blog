@@ -5,6 +5,10 @@ let infowindow = new kakao.maps.InfoWindow({zIndex:1});
 const KakaoMap = memo(({searchPlace}) => {
   
   useEffect(() => {
+    mapScript();
+  }, [searchPlace]);
+
+  const mapScript = () =>{
     const container = document.getElementById('kakaoMap');
     const options = {
       center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -13,10 +17,8 @@ const KakaoMap = memo(({searchPlace}) => {
     const map = new kakao.maps.Map(container, options);
 
     const ps = new kakao.maps.services.Places(); 
-    
-    ps.keywordSearch(searchPlace, placesSearchCB); 
 
-    function placesSearchCB (data, status, pagination) {
+    const placesSearchCB = (data, status, pagination) => {
         if (status === kakao.maps.services.Status.OK) {
 
             let bounds = new kakao.maps.LatLngBounds();
@@ -30,7 +32,7 @@ const KakaoMap = memo(({searchPlace}) => {
         } 
     }
 
-    function displayMarker(place) {
+    const displayMarker = (place) => {
         let marker = new kakao.maps.Marker({
             map: map,
             position: new kakao.maps.LatLng(place.y, place.x) 
@@ -42,17 +44,18 @@ const KakaoMap = memo(({searchPlace}) => {
             infowindow.open(map, marker);
         });
     }
-    }, [searchPlace]);
-
-    return (
-      <>
-          <div id="kakaoMap" style={{
-              width:'500px',
-              height:'400px'
-          }}>
-          </div>
-      </>
-    );
+    
+    ps.keywordSearch(searchPlace, placesSearchCB); 
+  }
+  return (
+    <>
+        <div id="kakaoMap" style={{
+            width:'800px',
+            height:'600px'
+        }}>
+        </div>
+    </>
+  );
 })
 
 export default KakaoMap;

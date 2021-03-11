@@ -1,7 +1,6 @@
 import React from 'react';
 
-import KakoMap from '../components/kakaoMap';
-import SearchPlace from '../components/searchPlace';
+import SearchPlace from './kakaoMap/searchPlace';
 
 const Home = () => {
     return (
@@ -11,7 +10,6 @@ const Home = () => {
             </div>
             <div >
                 <SearchPlace />
-                <KakoMap />
             </div>
             
         </>
