@@ -1,14 +1,14 @@
 import React from 'react';
 
-const About = () => {
+const Option = () => {
     return (
         <>
             <h2>
-                About
+                Option
             </h2>
         </>
     )
 };
 
 
-export default About;
+export default Option;
