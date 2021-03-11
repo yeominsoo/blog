@@ -4,12 +4,17 @@ import './leftMenu.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 const LeftMenu = memo(({menuList, expended, resized}) => {
-    const [bMove, setMove] = useState(false);
-    const [bResize, setResize] = useState(true);
-    const [eIcon, setIcon] = useState(<i class="fa fa-angle-left" aria-hidden="true"></i>);
+    const leftArrow = <i className="fa fa-angle-left" aria-hidden="true"></i>;
+    const rightArrow = <i className="fa fa-angle-left" aria-hidden="true"></i>;
+
     const menuResize = useRef(null);
     const menuWrapper = useRef(null);
     
+    const [bMove, setMove] = useState(false);
+    const [bResize, setResize] = useState(true);
+    const [eIcon, setIcon] = useState(leftArrow);
+    
+
     const onOpenBtnClick = () => {
         if(!bMove){
             menuWrapper.current.classList.add("is-opened");
@@ -32,13 +37,13 @@ const LeftMenu = memo(({menuList, expended, resized}) => {
             menuResize.current.classList.add("is-resized");
             resized(!bResize);
             setResize(!bResize);
-            setIcon(<i class="fa fa-angle-right" aria-hidden="true"></i>);
+            setIcon(rightArrow);
         }else{
             menuWrapper.current.classList.remove("is-resized");
             menuResize.current.classList.remove("is-resized");
             resized(!bResize);
             setResize(!bResize);
-            setIcon(<i class="fa fa-angle-left" aria-hidden="true"></i>);
+            setIcon(leftArrow);
         }
     }
 
@@ -51,7 +56,7 @@ const LeftMenu = memo(({menuList, expended, resized}) => {
                         return (
                             <Link to={v.path} className="linkText" key={i}>
                                 <li eventKey={v.code}>
-                                    <i className={v.icon} style={{ fontSize: '1.55em' }} />{v.name}
+                                    <i className={`${v.icon}`} style={{ fontSize: '1.75em', paddingLeft:'5px', paddingRight:'50px', paddingTop:'20px'}}/> {v.name}
                                 </li>
                             </Link>
                         )

@@ -13,10 +13,10 @@ import Home from '../pages/Home';
 import Contact from '../pages/Contact';
 
 const App = memo(() => {
-  const [menuInfo, setMenuInfo] = useState([{ code: 'E2' , path: '/Home' , name : 'Home', compo : Home, icon: "fa fa-fw fa-home"},
-                                            { code: 'WG', path: '/games' , name : '간단 웹게임', compo : Games, icon: "fa fa-gamepad"},
-                                            { code: 'E1' , path: '/Option' , name : 'Option', compo : Option , icon: "fa fa-fw fa-wrench"},
-                                            { code: 'E3' , path: '/Contact' , name : 'Contact', compo : Contact, icon: "fa fa-fw fa-envelope"},
+  const [menuInfo, setMenuInfo] = useState([{ code: 'HM' , path: '/Home' , name : 'Home', compo : Home, icon: "fa fa-fw fa-home"},
+                                            { code: 'WG', path: '/games' , name : '간단 웹게임', compo : Games, icon: "fa fa-fw fa-gamepad"},
+                                            { code: 'OP' , path: '/Option' , name : 'Option', compo : Option , icon: "fa fa-fw fa-wrench"},
+                                            { code: 'CT' , path: '/Contact' , name : 'Contact', compo : Contact, icon: "fa fa-fw fa-envelope"},
                                             ]);
   const [exped, setExped] = useState(false);
   const [resized, setResized] = useState(true);
