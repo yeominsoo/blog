@@ -1,11 +1,19 @@
 import React from 'react';
 
+import KakoMap from '../components/kakaoMap';
+import SearchPlace from '../components/searchPlace';
+
 const Home = () => {
     return (
         <>
-            <h2>
-                홈
-            </h2>
+            <div className="home-banner">
+            
+            </div>
+            <div>
+                <SearchPlace />
+                <KakoMap />
+            </div>
+            
         </>
     )
 };

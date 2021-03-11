@@ -7,8 +7,9 @@ const MainContent = memo(({exped, menuInfo, resized}) => {
     return (
         <>
             <main className="menu-contents" style={{
-                    transform: `translateX(${exped ? resized ? 220 : 65 : 10}px)`,
-                    transition: 'transform 0.2s'
+                    left: `${exped ? (resized ? 220 : 75) : 10}px`,
+                    transform: `width: calc(100% - ${exped ? (resized ? 220 : 75) : 10}px)`,
+                    transition: 'transform 0.2s, left 0.2s'
             }}> 
                 <Route exact path="/" component={Home} />
                 {
