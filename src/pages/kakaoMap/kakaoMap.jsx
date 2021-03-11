@@ -50,8 +50,8 @@ const KakaoMap = memo(({searchPlace}) => {
   return (
     <>
         <div id="kakaoMap" style={{
-            width:'500px',
-            height:'400px'
+            width:'800px',
+            height:'600px'
         }}>
         </div>
     </>
