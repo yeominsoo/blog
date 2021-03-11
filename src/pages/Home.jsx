@@ -9,7 +9,7 @@ const Home = () => {
             <div className="home-banner">
             
             </div>
-            <div>
+            <div >
                 <SearchPlace />
                 <KakoMap />
             </div>

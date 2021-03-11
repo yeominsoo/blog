@@ -1,7 +1,7 @@
 import React, {memo} from 'react';
 import {Route} from 'react-router-dom';
 import './mainContents.css';
-import Home from '../pages/Home';
+import Home from '../../pages/Home';
 
 const MainContent = memo(({exped, menuInfo, resized}) => {
     return (

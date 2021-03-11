@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import WordRelay from './games/wordRelay/wordRelay';
 import NumberBaseball from './games/numberBaseball/NumberBaseball_hooks';
 import Gugudan from './games/gugudan/gugudan';
-import '../pages/game.css';
+import '../pages/Games.css';
 
 const Games = memo(() => {
     const [btnVari, setBtnVari] = useState('');

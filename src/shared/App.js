@@ -3,11 +3,11 @@ import React, {useState, memo, useRef} from 'react';
 
 import '../shared/App.css';
 
-import TopMenu from '../components/topMenu';
-import LeftMenu from '../components/leftMenu';
-import MainContents from '../components/mainContents';
+import TopMenu from '../components/frame/topMenu';
+import LeftMenu from '../components/frame/leftMenu';
+import MainContents from '../components/frame/mainContents';
 
-import Games from '../pages/games';
+import Games from '../pages/Games';
 import Option from '../pages/Option';
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
