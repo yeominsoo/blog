@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SearchPlace from './kakaoMap/searchPlace';
+import SearchPlace from '../components/kakaoMap/searchPlace';
 
 const Home = () => {
     return (

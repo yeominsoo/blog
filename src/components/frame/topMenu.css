@@ -1,17 +1,19 @@
 .title-frame {
   position: absolute;
-  left: 70px;
+  left: 50px;
   right: 0;
   background-color: #eaf0f1;
   display: flex;
   color: #37545f;
-  padding: 20px;
+  padding: 10px;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 16px;
   z-index: 9999;
+  height: 40px;
 }
 
 .TopTitleText {
+  position: relative;
   color: #37545f;
   text-decoration: none;
 }

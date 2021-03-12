@@ -15,8 +15,8 @@ const LeftMenu = memo(({menuList, expended, resized}) => {
     const [elIcon, setIcon] = useState(leftArrow);
     
     const iconStyle = {
-        fontSize: '1.75em'
-        , padding: '20px 50px 0px 0px'
+        fontSize: '1.45em'
+        , padding: '10px 40px 0px 0px'
     }
 
     const onOpenBtnClick = () => {
