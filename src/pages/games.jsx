@@ -1,9 +1,9 @@
 import React, {memo, useState} from 'react';
 import Button from 'react-bootstrap/Button';
 
-import WordRelay from './games/wordRelay/wordRelay';
-import NumberBaseball from './games/numberBaseball/NumberBaseball_hooks';
-import Gugudan from './games/gugudan/gugudan';
+import WordRelay from '../components/games/wordRelay/wordRelay';
+import NumberBaseball from '../components/games/numberBaseball/NumberBaseball_hooks';
+import Gugudan from '../components/games/gugudan/gugudan';
 import '../pages/Games.css';
 
 const Games = memo(() => {
