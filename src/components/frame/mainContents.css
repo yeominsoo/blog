@@ -17,13 +17,13 @@
   width: 10px;
 }
 .menu-contents::-webkit-scrollbar-button {
-  background-color: #ffffff;
+  background-color: #f7ecf1;
 }
 
 .menu-contents::-webkit-scrollbar-track {
-  background-color: #80878a;
+  background-color: #f3c4d9;
 }
 
 .menu-contents::-webkit-scrollbar-thumb {
-  background-color: #ffffff;
+  background-color: #f7ecf1;
 }
