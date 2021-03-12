@@ -13,7 +13,7 @@ const SlidePage = () => {
 
     return (
         <>
-            <div className="top-container">
+            {/* <div className="top-container">
                 <div className="top-bg">
                 </div>
                 <div className="top-wrapper">
@@ -29,8 +29,8 @@ const SlidePage = () => {
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div className="main-content">
+            </div> */}
+            <div className="slide-container">
                 <div className="contents-wrapper" >
                     <div className="contents-viewport">
                         <ImageSlider />

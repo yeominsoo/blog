@@ -22,7 +22,7 @@ import image8 from '../../images/image8.jpg';
         { url: image7 },
         { url: image8 },
       ];
-      
+    
     return (
       <> 
         <div className="slide-container" style={{
@@ -30,12 +30,12 @@ import image8 from '../../images/image8.jpg';
             height: '100%',
             top: '-100px'
         }}>
-            <Fade transitionDuration="1000" duration="3000" autoplay="true" arrows="">
+            <Fade transitionDuration="1000" duration="1500" autoplay="true" arrows="">
                 {
                     images.map((v,i) => {
                         return (
                             <div className="each-fade" >
-                                <img src={v.url} width="100%" alt="slide 이미지"/>
+                                <img src={v.url} width="1720" height="880" alt="slide 이미지"/>
                             </div>
                         )
                     })

@@ -5,9 +5,13 @@ import SearchPlace from '../components/kakaoMap/searchPlace';
 const Home = () => {
     return (
         <>
-            <h2>
-                home
-            </h2>
+            <div className="home-banner">
+            
+            </div>
+            <div style={{
+            }} >
+                <SearchPlace />
+            </div>
         </>
     )
 };
