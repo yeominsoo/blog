@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "yeominsoo-blog"
+    "default": "yeominsoo-blog",
+    "yeominsoo-blog": "yeominsoo-blog"
   }
 }
