@@ -5,7 +5,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Root from './client/Root';
 
 ReactDOM.render(
-  <Root />,
+  <>
+  <Root />
+  </>
+  ,
   document.getElementById('root')
 );
 
