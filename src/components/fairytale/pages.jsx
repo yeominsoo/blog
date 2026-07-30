@@ -12,7 +12,7 @@ const pages = [
             <Scene>
                 <Cloud x={60} y={40} /><Cloud x={320} y={90} scale={0.8} />
                 <Rainbow cx={200} cy={300} r={150} bands={6} />
-                <Ground /><House x={90} y={210} /><Girl x={230} y={235} pose="wave" />
+                <Ground /><House x={90} y={210} /><Girl x={230} y={235} pose="wave" sparkle />
             </Scene>
         ),
     },
@@ -53,7 +53,7 @@ const pages = [
         text: '"엄마, 무지개다!" 시온이가 크게 소리쳤어요.',
         illust: (
             <Scene>
-                <Rainbow cx={200} cy={300} r={180} bands={6} opacity={0.5} /><Ground /><Girl x={200} y={225} pose="point" />
+                <Rainbow cx={200} cy={300} r={180} bands={6} opacity={0.5} /><Ground /><Girl x={200} y={225} pose="point" sparkle />
             </Scene>
         ),
     },
@@ -133,7 +133,7 @@ const pages = [
         text: '그 후로 시온이는 무지개를 볼 때마다\n활짝 웃으며 인사해요. "무지개야, 고마워!"',
         illust: (
             <Scene>
-                <Rainbow cx={200} cy={300} r={180} bands={6} /><Cloud x={40} y={30} scale={0.6} /><Ground /><Girl x={200} y={225} pose="wave" />
+                <Rainbow cx={200} cy={300} r={180} bands={6} /><Cloud x={40} y={30} scale={0.6} /><Ground /><Girl x={200} y={225} pose="wave" sparkle />
             </Scene>
         ),
     },

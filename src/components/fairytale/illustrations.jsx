@@ -99,37 +99,106 @@ const POSES = {
     },
 };
 
-export const Girl = ({ x = 200, y = 220, pose = 'stand', flip = false }) => {
+const Star = ({ cx, cy, r = 6, color = '#fff59d' }) => {
+    const pts = [];
+    for (let i = 0; i < 8; i++) {
+        const rad = i % 2 === 0 ? r : r * 0.4;
+        const ang = (Math.PI / 4) * i - Math.PI / 2;
+        pts.push(`${cx + rad * Math.cos(ang)},${cy + rad * Math.sin(ang)}`);
+    }
+    return <polygon points={pts.join(' ')} fill={color} />;
+};
+
+export const Girl = ({ x = 200, y = 220, pose = 'stand', flip = false, sparkle = false }) => {
     const p = POSES[pose] || POSES.stand;
-    const headCy = p.headCy ?? -34;
+    const headCy = p.headCy ?? -40;
+    const hair = '#7a4a2a';
+    const hairLight = '#95622f';
+    const skin = '#ffe0c2';
+    const dressA = '#ffb6d5';
+    const dressB = '#ff8fb8';
+    const sash = '#c9a0f5';
+    const topY = headCy + 16;
+    const hemY = headCy + 58;
+    const leftX = -32;
+    const rightX = 32;
+    const bumps = 5;
+    let hem = `M -22 ${topY} L 22 ${topY} L ${rightX} ${hemY - 10} `;
+    for (let i = 0; i < bumps; i++) {
+        const bx1 = rightX - (rightX - leftX) * ((i + 0.5) / bumps);
+        const bx2 = rightX - (rightX - leftX) * ((i + 1) / bumps);
+        hem += `Q ${bx1} ${hemY + 6} ${bx2} ${hemY - 10} `;
+    }
+    hem += 'Z';
+
     return (
         <g transform={`translate(${x},${y}) ${flip ? 'scale(-1,1)' : ''}`}>
             <path d={p.legLeft} stroke="#5d4037" strokeWidth="6" strokeLinecap="round" fill="none" />
             <path d={p.legRight} stroke="#5d4037" strokeWidth="6" strokeLinecap="round" fill="none" />
-            <ellipse cx={p.shoeL[0]} cy={p.shoeL[1]} rx="7" ry="4" fill="#f48fb1" />
-            <ellipse cx={p.shoeR[0]} cy={p.shoeR[1]} rx="7" ry="4" fill="#f48fb1" />
-            <path d={`M -20 ${headCy + 14} L 20 ${headCy + 14} L 28 ${headCy + 54} L -28 ${headCy + 54} Z`} fill="#f06292" />
-            <path d={p.armLeft} stroke="#ffd7b5" strokeWidth="6" strokeLinecap="round" fill="none" />
-            <path d={p.armRight} stroke="#ffd7b5" strokeWidth="6" strokeLinecap="round" fill="none" />
-            <circle cx="0" cy={headCy} r="18" fill="#ffd7b5" />
-            <path d={`M -18 ${headCy} A18 18 0 0 1 18 ${headCy} L 18 ${headCy - 8} Q 0 ${headCy - 26} -18 ${headCy - 8} Z`} fill="#3e2723" />
-            <circle cx="-21" cy={headCy + 7} r="6" fill="#3e2723" />
-            <circle cx="21" cy={headCy + 7} r="6" fill="#3e2723" />
+            <ellipse cx={p.shoeL[0]} cy={p.shoeL[1]} rx="7" ry="4.5" fill="#c48ee0" />
+            <ellipse cx={p.shoeR[0]} cy={p.shoeR[1]} rx="7" ry="4.5" fill="#c48ee0" />
+
+            {/* flowing hair, behind head */}
+            <path d={`M -20 ${headCy - 6} C -34 ${headCy - 2} -34 ${headCy + 22} -26 ${headCy + 30}
+                C -34 ${headCy + 40} -30 ${headCy + 58} -18 ${headCy + 66}
+                C -24 ${headCy + 50} -20 ${headCy + 34} -22 ${headCy + 20}
+                C -24 ${headCy + 6} -20 ${headCy - 4} -12 ${headCy - 10} Z`} fill={hair} />
+            <path d={`M 20 ${headCy - 6} C 34 ${headCy - 2} 34 ${headCy + 22} 26 ${headCy + 30}
+                C 34 ${headCy + 40} 30 ${headCy + 58} 18 ${headCy + 66}
+                C 24 ${headCy + 50} 20 ${headCy + 34} 22 ${headCy + 20}
+                C 24 ${headCy + 6} 20 ${headCy - 4} 12 ${headCy - 10} Z`} fill={hair} />
+
+            {/* dress skirt + bodice + sash */}
+            <path d={hem} fill={dressB} />
+            <path d={`M -16 ${topY} L 16 ${topY} L 20 ${headCy + 34} L -20 ${headCy + 34} Z`} fill={dressA} />
+            <rect x="-20" y={headCy + 30} width="40" height="6" fill={sash} />
+            <circle cx="0" cy={headCy + 33} r="4.5" fill={sash} />
+            <circle cx="-6" cy={headCy + 33} r="3" fill="#a97ee0" />
+            <circle cx="6" cy={headCy + 33} r="3" fill="#a97ee0" />
+            <ellipse cx="-18" cy={topY + 2} rx="7" ry="6" fill={dressA} />
+            <ellipse cx="18" cy={topY + 2} rx="7" ry="6" fill={dressA} />
+
+            <path d={p.armLeft} stroke={skin} strokeWidth="6" strokeLinecap="round" fill="none" />
+            <path d={p.armRight} stroke={skin} strokeWidth="6" strokeLinecap="round" fill="none" />
+
+            <circle cx="0" cy={headCy} r="19" fill={skin} />
+            {/* bangs / front hair */}
+            <path d={`M -19 ${headCy - 2} A19 19 0 0 1 19 ${headCy - 2} L 17 ${headCy - 11} Q 8 ${headCy - 20} 0 ${headCy - 14}
+                Q -8 ${headCy - 20} -17 ${headCy - 11} Z`} fill={hair} />
+            <path d={`M -6 ${headCy - 13} Q -2 ${headCy - 8} -8 ${headCy - 4}`} stroke={hairLight} strokeWidth="1.6" fill="none" strokeLinecap="round" />
+            {/* tiara */}
+            <path d={`M -10 ${headCy - 15} L -6 ${headCy - 21} L -2 ${headCy - 15} L 0 ${headCy - 23} L 2 ${headCy - 15} L 6 ${headCy - 21} L 10 ${headCy - 15}`}
+                fill="none" stroke="#ffd54f" strokeWidth="1.8" strokeLinejoin="round" strokeLinecap="round" />
+            <circle cx="0" cy={headCy - 19} r="2" fill="#81d4fa" />
+
+            <path d={`M -12 ${headCy - 6} Q -8 ${headCy - 9} -4 ${headCy - 7}`} stroke={hair} strokeWidth="1.6" fill="none" strokeLinecap="round" />
+            <path d={`M 4 ${headCy - 7} Q 8 ${headCy - 9} 12 ${headCy - 6}`} stroke={hair} strokeWidth="1.6" fill="none" strokeLinecap="round" />
+
             {p.eyes === 'tired' ? (
                 <>
-                    <path d={`M -9 ${headCy} Q -6 ${headCy - 3} -3 ${headCy}`} stroke="#3e2723" strokeWidth="1.8" fill="none" strokeLinecap="round" />
-                    <path d={`M 3 ${headCy} Q 6 ${headCy - 3} 9 ${headCy}`} stroke="#3e2723" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+                    <path d={`M -11 ${headCy - 1} Q -7 ${headCy - 4} -3 ${headCy - 1}`} stroke="#4a3222" strokeWidth="2" fill="none" strokeLinecap="round" />
+                    <path d={`M 3 ${headCy - 1} Q 7 ${headCy - 4} 11 ${headCy - 1}`} stroke="#4a3222" strokeWidth="2" fill="none" strokeLinecap="round" />
                 </>
             ) : (
+                [-7, 7].map((dx) => (
+                    <React.Fragment key={dx}>
+                        <ellipse cx={dx} cy={headCy - 1} rx="3.6" ry="4.6" fill="#4a3222" />
+                        <ellipse cx={dx + (dx < 0 ? -1.1 : 1.1)} cy={headCy - 3} rx="1.3" ry="1.6" fill="#ffffff" />
+                        <circle cx={dx + (dx < 0 ? 1 : -1)} cy={headCy + 1} r="0.6" fill="#ffffff" opacity="0.7" />
+                    </React.Fragment>
+                ))
+            )}
+            <ellipse cx="-12" cy={headCy + 5} rx="3.2" ry="2" fill="#ff9ec4" opacity="0.75" />
+            <ellipse cx="12" cy={headCy + 5} rx="3.2" ry="2" fill="#ff9ec4" opacity="0.75" />
+            <path d={`M -4.5 ${headCy + 7} Q 0 ${headCy + 11} 4.5 ${headCy + 7}`} stroke="#e05a7a" strokeWidth="1.8" fill="none" strokeLinecap="round" />
+
+            {sparkle && (
                 <>
-                    <circle cx="-6" cy={headCy} r="2" fill="#3e2723" />
-                    <circle cx="6" cy={headCy} r="2" fill="#3e2723" />
+                    <Star cx={-38} cy={headCy - 20} r={6} color="#fff59d" />
+                    <Star cx={40} cy={headCy} r={4.5} color="#ffd1e8" />
+                    <Star cx={-42} cy={headCy + 30} r={4} color="#bfe6ff" />
                 </>
             )}
-            <path d={`M -5 ${headCy + 8} Q 0 ${headCy + 12} 5 ${headCy + 8}`} stroke="#e57373" strokeWidth="2" fill="none" strokeLinecap="round" />
-            <ellipse cx="-11" cy={headCy + 4} rx="2.5" ry="1.5" fill="#f8bbd0" opacity="0.8" />
-            <ellipse cx="11" cy={headCy + 4} rx="2.5" ry="1.5" fill="#f8bbd0" opacity="0.8" />
-            {p.eyes === 'tired' && <ellipse cx="20" cy={headCy - 10} rx="2.5" ry="4" fill="#81d4fa" opacity="0.8" />}
         </g>
     );
 };
