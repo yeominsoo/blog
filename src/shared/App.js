@@ -13,6 +13,7 @@ import MapPage from '../pages/MapPage';
 import Option from '../pages/Option';
 import Home from '../pages/Home';
 import Contact from '../pages/Contact';
+import FairytaleBook from '../pages/FairytaleBook';
 
 const App = memo(() => {
   const [menuInfo, setMenuInfo] = useState([{ code: 'HM' , path: '/Home' , name : 'Home', compo : Home, icon: "fa fa-fw fa-home"},
@@ -21,6 +22,7 @@ const App = memo(() => {
                                             { code: 'MP', path: '/map' , name : '지도보기', compo : MapPage, icon: "fa fa-fw fa-map"},
                                             { code: 'SL', path: '/slide' , name : '슬라이드', compo : SlidePage, icon: "fa fa-fw fa-image"},
                                             { code: 'WG', path: '/games' , name : '간단 웹게임', compo : Games, icon: "fa fa-fw fa-gamepad"},
+                                            { code: 'FT', path: '/fairytale' , name : '동화책', compo : FairytaleBook, icon: "fa fa-fw fa-book"},
                                             ]);
   const [exped, setExped] = useState(false);
   const [resized, setResized] = useState(true);
